@@ -1,0 +1,36 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://8.140.121.217:8761/eureka/
+
+server:
+  context-path: /system-mq
+  port: 10003
+
+mybatis:
+  config-location: /mapper/*.xml
+
+spring:
+  application:
+    name: system-mq
+
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://123.56.93.156:3306/platform?useUnicode=true&characterEncoding=utf-8
+    driver-class-name: com.mysql.jdbc.Driver
+
+mqtt:
+  username: mqtt
+  password: mqtt
+  # 推送信息的连接地址, 如果有多个，用逗号隔开, 如: tcp://ip:1883,tcp://ip:1883
+  url: tcp://47.94.174.13:1883
+  # 默认发送的主题
+  sender:
+    defaultTopic: topic_ds18b20
+    # 客户端编号
+    clientId: client_neo
+  consumer:
+    defaultTopic: topic_ds18b20
+    clientId: client_neo_consumer
+  completionTimeout: 3000
